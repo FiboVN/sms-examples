@@ -7,7 +7,7 @@ public class SMS {
     clientPass = _clientPass;
   }
 
-  public boolean SendSMS(string message) {
+  public boolean SendSMS(Message msg) {
     
   }
 }
