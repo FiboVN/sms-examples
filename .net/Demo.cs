@@ -7,7 +7,7 @@ class Demo
   {
     SMS client = new SMS(clientNo, clientPass);
 
-    boolean res = client.SendSMS("FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
+    boolean res = client.SendSMS("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
     if (res) {
       Console.WriteLine("Success");
     } else {

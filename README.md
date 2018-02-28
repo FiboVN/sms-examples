@@ -11,7 +11,7 @@ class SMSSender {
 
   public static void main(String[] args) {
     SMS client = new SMS(clientNo, clientPass);
-    boolean result = client.sendSMS("FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
+    boolean result = client.sendSMS('+841234567899', "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
     if (result) {
       System.out.println("Success");
     } else {
@@ -33,7 +33,7 @@ class Demo
   {
     SMS client = new SMS(clientNo, clientPass);
 
-    boolean res = client.SendSMS("FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
+    boolean res = client.SendSMS("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
     if (res) {
       Console.WriteLine("Success");
     } else {
@@ -52,7 +52,7 @@ $clientNo = "YOUR_CLIENT_NO";
 $clientPass = "YOUR_CLIENT_PASS";
 
 $sms = new SMS($clientNo, $clientPass);
-$res = $sms->sendSMS("FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
+$res = $sms->sendSMS("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
 if ($res) {
   echo "Success";
 } else {
@@ -69,7 +69,7 @@ clientNo = "YOUR_CLIENT_NO"
 clientPass = "YOUR_CLIENT_PASS"
 
 client = new SMS(clientNo, clientPass);
-result = client.send_sms("FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.")
+result = client.send_sms("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.")
 if result:
   print("Success")
 else:
@@ -85,7 +85,7 @@ clientNo = "YOUR_CLIENT_NO"
 clientPass = "YOUR_CLIENT_PASS"
 
 client = SMS.new(clientNo, clientPass)
-res = client.send_sms("FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.")
+res = client.send_sms("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.")
 if res
   puts("Success")
 else
@@ -104,6 +104,7 @@ const clientPass = 'YOUR_CLIENT_PASS';
 const client = new SMS({ clientNo, clientPass });
 client
   .sendSMS(
+    '+841234567899',
     'FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.',
   )
   .then(res => {
