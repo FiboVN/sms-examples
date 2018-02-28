@@ -1,5 +1,6 @@
 package vn.fibo.sms;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.xml.soap.*;
@@ -27,8 +28,16 @@ public class SMS {
     this.client = null;
   }
 
-  public boolean sendSMS(String message) {
-    SOAPMessage response = this.callSoapWebService(this.toUri(), "SendMaskedSMS");
+  public boolean sendSMS(Message msg) {
+    HashMap<String, String> params = new HashMap<>();
+    params.put("clientNo", this.clientNo);
+    params.put("clientPass", this.clientPass);
+    params.put("serviceType", this.serviceType + "");
+    params.put("senderName", msg.getSenderName());
+    params.put("phoneNumber", msg.getPhoneNumber());
+    params.put("smsGUID", msg.getSmsGUID());
+    SOAPMessage response = this.callSoapWebService(this.toUri("SendMaskedSMS", this.buildQuery(params)),
+        "SendMaskedSMS");
     // get the body
     SOAPBody soapBody = response.getSOAPBody();
     // find your node based on tag name

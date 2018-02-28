@@ -11,7 +11,13 @@ class SMSSender {
 
   public static void main(String[] args) {
     SMS client = new SMS(clientNo, clientPass);
-    boolean result = client.sendSMS('+841234567899', "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
+    Message msg = new Message(
+        "TESTER",
+        "+841234567899",
+        "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.", 
+        "U8h1d9K"
+      );
+    boolean result = client.sendSMS(msg);
     if (result) {
       System.out.println("Success");
     } else {
@@ -32,8 +38,14 @@ class Demo
   static void Main()
   {
     SMS client = new SMS(clientNo, clientPass);
+    Message msg = new Message(
+        "TESTER",
+        "+841234567899",
+        "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.", 
+        "U8h1d9K"
+      );
 
-    boolean res = client.SendSMS("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
+    boolean res = client.SendSMS(msg);
     if (res) {
       Console.WriteLine("Success");
     } else {
@@ -41,6 +53,7 @@ class Demo
     }
   }
 }
+
 ```
 
 ## PHP
@@ -52,12 +65,18 @@ $clientNo = "YOUR_CLIENT_NO";
 $clientPass = "YOUR_CLIENT_PASS";
 
 $sms = new SMS($clientNo, $clientPass);
-$res = $sms->sendSMS("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.");
+$res = $sms->sendSMS([
+  "senderName" => "TESTER",
+  "phoneNumber" => "+841234567899",
+  "smsMessage" => "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.",
+  "smsGUID" => "U8h1d9K"
+]);
 if ($res) {
   echo "Success";
 } else {
   echo "Failed";
 }
+
 ```
 
 ## Python
@@ -69,7 +88,12 @@ clientNo = "YOUR_CLIENT_NO"
 clientPass = "YOUR_CLIENT_PASS"
 
 client = new SMS(clientNo, clientPass);
-result = client.send_sms("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.")
+result = client.send_sms({
+    "senderName": "TESTER",
+    "phoneNumber": "+841234567899",
+    "smsMessage": "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.",
+    "smsGUID": "U8h1d9K",
+  })
 if result:
   print("Success")
 else:
@@ -85,11 +109,16 @@ clientNo = "YOUR_CLIENT_NO"
 clientPass = "YOUR_CLIENT_PASS"
 
 client = SMS.new(clientNo, clientPass)
-res = client.send_sms("+841234567899", "FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.")
+res = client.send_sms({
+  :senderName => 'TESTER',
+  :phoneNumber => '+841234567899',
+  :smsMessage => 'FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.',
+  :smsGUID => 'U8h1d9K',
+})
 if res
   puts("Success")
 else
-  puts("Failed"
+  puts("Failed")
 ```
 
 ## NodeJS
@@ -103,10 +132,12 @@ const clientPass = 'YOUR_CLIENT_PASS';
 
 const client = new SMS({ clientNo, clientPass });
 client
-  .sendSMS(
-    '+841234567899',
-    'FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.',
-  )
+  .sendSMS({
+    senderName: 'TESTER',
+    phoneNumber: '+841234567899',
+    smsMessage: 'FIBO xin chao quy khach, chuc quy khach nam moi an khang thinh vuong.',
+    smsGUID: 'U8h1d9K',
+  })
   .then(res => {
     console.log('Success');
   })

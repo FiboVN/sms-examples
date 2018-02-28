@@ -10,7 +10,7 @@ class SMS {
       $this->clientPass = $clientPass;
     }
 
-    function sendSMS($message) {
+    function sendSMS($msg) {
       return false;
     }
 } 
